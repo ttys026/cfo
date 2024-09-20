@@ -2,6 +2,7 @@ export default {
 	async fetch(request, _env, _ctx): Promise<Response> {
 		const url = new URL(request.url);
 		const target = url.searchParams.get('url');
+		const ua = url.searchParams.get('ua');
 		if (url.pathname !== '/' || !target || typeof target !== 'string') {
 			return new Response(JSON.stringify({ error: 'Invalid URL' }), {
 				status: 400,
@@ -12,8 +13,7 @@ export default {
 		try {
 			const html = (await fetch(target, {
 				headers: {
-					'user-agent':
-						'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+					'user-agent': typeof ua === 'string' ? ua : 'node-fetch',
 				},
 			})) as unknown as Response;
 

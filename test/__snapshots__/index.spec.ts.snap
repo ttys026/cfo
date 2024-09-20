@@ -1,10 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should bring user-agent header > https://facebook.com/ 1`] = `
+exports[`should bring user-agent header > https://codesandbox.io/p/sandbox/7t8chd 1`] = `
 {
-  "icon": "https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico",
-  "og:description": "Facebook",
-  "og:title": "Facebook",
+  "icon": "https://codesandbox.io/favicon.ico",
+  "og:description": "promise  ",
+  "og:image": "https://codesandbox.io/api/v1/sandboxes/7t8chd/screenshot.png",
+  "og:image:alt": "A preview of promise",
+  "og:image:height": "630",
+  "og:image:width": "1200",
+  "og:title": "promise - Codesandbox",
+  "og:type": "article",
+  "og:url": "https://codesandbox.io/s/bold-mcnulty-7t8chd",
 }
 `;
 

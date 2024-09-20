@@ -10,31 +10,25 @@ const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
 describe('should get item correctly', () => {
 	it('https://ogp.me/', async () => {
 		const request = new IncomingRequest('http://localhost/?url=https://ogp.me/');
-		// Create an empty context to pass to `worker.fetch()`.
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
 		expect(await response.json()).toMatchSnapshot();
 	});
 	it('https://google.com/', async () => {
 		const request = new IncomingRequest('http://localhost/?url=https://google.com/');
-		// Create an empty context to pass to `worker.fetch()`.
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
 		expect(await response.json()).toMatchSnapshot();
 	});
 });
 
 describe('should bring user-agent header', () => {
-	it('https://facebook.com/', async () => {
-		const request = new IncomingRequest('http://localhost/?url=https://facebook.com/');
-		// Create an empty context to pass to `worker.fetch()`.
+	it('https://codesandbox.io/p/sandbox/7t8chd', async () => {
+		const request = new IncomingRequest('http://localhost/?url=https://codesandbox.io/p/sandbox/7t8chd');
 		const ctx = createExecutionContext();
 		const response = await worker.fetch(request, env, ctx);
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		await waitOnExecutionContext(ctx);
 		expect(await response.json()).toMatchSnapshot();
 	});
@@ -43,9 +37,7 @@ describe('should bring user-agent header', () => {
 describe('should return error', () => {
 	it('https://some-url-that-does-not-work.abcde/', async () => {
 		const request = new IncomingRequest('http://localhost/?url=https://some-url-that-does-not-work.abcde/');
-		// Create an empty context to pass to `worker.fetch()`.
 		const ctx = createExecutionContext();
-		// Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
 		const response = await worker.fetch(request, env, ctx);
 		await waitOnExecutionContext(ctx);
 		const json = await response.json();
