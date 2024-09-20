@@ -1,0 +1,8 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "cfo"
+main = "src/index.ts"
+compatibility_date = "2024-09-19"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
