@@ -17,6 +17,10 @@ export default {
 				},
 			})) as unknown as Response;
 
+			if (html.status >= 400) {
+				return new Response(JSON.stringify({ error: await html.clone().text() }), { status: 429 });
+			}
+
 			const result: Record<string, string> = {};
 
 			class OgStandardAttr implements HTMLRewriterElementContentHandlers {
